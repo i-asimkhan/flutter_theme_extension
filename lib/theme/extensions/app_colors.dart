@@ -14,11 +14,19 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.onSurface,
     required this.surfaceVariant,
     required this.onSurfaceVariant,
-    required this.cardBgColor,
     required this.error,
     required this.onError,
     required this.success,
     required this.onSuccess,
+
+    /// Custom colors
+    required this.tileBackgroundColor,
+    required this.defaultText,
+    required this.lightText,
+    required this.defaultIcon,
+    required this.disabledIcon,
+    required this.disabledSurface,
+    required this.onDisabledSurface,
     required this.linearGradient,
   });
 
@@ -33,11 +41,19 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color onSurface;
   final Color surfaceVariant;
   final Color onSurfaceVariant;
-  final Color cardBgColor;
   final Color error;
   final Color onError;
   final Color success;
   final Color onSuccess;
+
+  /// Custom colors
+  final Color tileBackgroundColor;
+  final Color defaultText;
+  final Color lightText;
+  final Color defaultIcon;
+  final Color disabledIcon;
+  final Color disabledSurface;
+  final Color onDisabledSurface;
   final LinearGradient linearGradient;
 
   @override
@@ -53,11 +69,19 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? onSurface,
     Color? surfaceVariant,
     Color? onSurfaceVariant,
-    Color? cardBgColor,
     Color? error,
     Color? onError,
     Color? success,
     Color? onSuccess,
+
+    /// Custom colors
+    Color? tileBackgroundColor,
+    Color? defaultText,
+    Color? lightText,
+    Color? defaultIcon,
+    Color? disabledIcon,
+    Color? disabledSurface,
+    Color? onDisabledSurface,
     LinearGradient? linearGradient,
   }) {
     return AppColors(
@@ -72,11 +96,19 @@ class AppColors extends ThemeExtension<AppColors> {
       onSurface: onSurface ?? this.onSurface,
       surfaceVariant: surfaceVariant ?? this.surfaceVariant,
       onSurfaceVariant: onSurfaceVariant ?? this.onSurfaceVariant,
-      cardBgColor: cardBgColor ?? this.cardBgColor,
       error: error ?? this.error,
       onError: onError ?? this.onError,
       success: success ?? this.success,
       onSuccess: onSuccess ?? this.onSuccess,
+
+      /// Custom colors
+      tileBackgroundColor: tileBackgroundColor ?? this.tileBackgroundColor,
+      defaultText: defaultText ?? this.defaultText,
+      lightText: lightText ?? this.lightText,
+      defaultIcon: defaultIcon ?? this.defaultIcon,
+      disabledIcon: disabledIcon ?? this.disabledIcon,
+      disabledSurface: disabledSurface ?? this.disabledSurface,
+      onDisabledSurface: onDisabledSurface ?? this.onDisabledSurface,
       linearGradient: linearGradient ?? this.linearGradient,
     );
   }
@@ -103,11 +135,25 @@ class AppColors extends ThemeExtension<AppColors> {
       onSurfaceVariant:
           Color.lerp(onSurfaceVariant, other.onSurfaceVariant, t) ??
               onSurfaceVariant,
-      cardBgColor: Color.lerp(cardBgColor, other.cardBgColor, t) ?? cardBgColor,
       error: Color.lerp(error, other.error, t) ?? error,
       onError: Color.lerp(onError, other.onError, t) ?? onError,
       success: Color.lerp(success, other.success, t) ?? success,
       onSuccess: Color.lerp(onSuccess, other.onSuccess, t) ?? onSuccess,
+
+      /// Custom colors
+      tileBackgroundColor:
+          Color.lerp(tileBackgroundColor, other.tileBackgroundColor, t) ??
+              tileBackgroundColor,
+      defaultText: Color.lerp(defaultText, other.defaultText, t) ?? defaultText,
+      lightText: Color.lerp(lightText, other.lightText, t) ?? lightText,
+      defaultIcon: Color.lerp(defaultIcon, other.defaultIcon, t) ?? defaultIcon,
+      disabledIcon:
+          Color.lerp(disabledIcon, other.disabledIcon, t) ?? disabledIcon,
+      disabledSurface: Color.lerp(disabledSurface, other.disabledSurface, t) ??
+          disabledSurface,
+      onDisabledSurface:
+          Color.lerp(onDisabledSurface, other.onDisabledSurface, t) ??
+              onDisabledSurface,
       linearGradient:
           LinearGradient.lerp(linearGradient, other.linearGradient, t) ??
               linearGradient,

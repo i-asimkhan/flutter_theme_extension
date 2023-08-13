@@ -57,7 +57,6 @@ class AppTextTheme {
       TextStyle(fontSize: 8, fontWeight: FontWeight.w700, letterSpacing: 0);
 }
 
-extension AppThemeX on BuildContext {
+extension AppTextThemeX on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
-  ColorScheme get colorScheme => Theme.of(this).colorScheme;
 }

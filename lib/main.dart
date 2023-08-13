@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme_etension/home/home_screen.dart';
-import 'package:flutter_theme_etension/strings.dart';
-import 'package:flutter_theme_etension/theme/app_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_theme_etension/home/welcome/welcome_screen.dart';
+import 'package:flutter_theme_etension/theme/cubit/theme_cubit.dart';
+import 'package:flutter_theme_etension/utils/strings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MainApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final SharedPreferences sharedPreferences =
+      await SharedPreferences.getInstance();
+
+  runApp(
+    BlocProvider(
+      create: (context) => ThemeCubit(sharedPreferences)..init(),
+      child: const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -12,10 +24,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: Strings.appName,
-      theme: AppTheme.darkTheme,
-      home: const HomeScreen(),
+    return BlocBuilder<ThemeCubit, ThemeState>(
+      builder: (context, state) {
+        return MaterialApp(
+          title: Strings.appName,
+          themeMode: state.themeMode,
+          theme: state.lightTheme,
+          darkTheme: state.darkTheme,
+          home: const WelcomeScreen(),
+        );
+      },
     );
   }
 }

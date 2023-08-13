@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme_etension/home/account/widgets/account_assets_tab.dart';
-import 'package:flutter_theme_etension/home/account/widgets/account_transactions_tab.dart';
-import 'package:flutter_theme_etension/strings.dart';
-import 'package:flutter_theme_etension/theme/app_colors.dart';
-import 'package:flutter_theme_etension/theme/app_text_theme.dart';
+import 'package:flutter_theme_etension/home/account/widgets/assets/recent_assets_list_view.dart';
+import 'package:flutter_theme_etension/home/account/widgets/transactons/recent_transactions_list_view.dart';
+import 'package:flutter_theme_etension/theme/extensions/app_colors.dart';
+import 'package:flutter_theme_etension/theme/themes/app_text_theme.dart';
+import 'package:flutter_theme_etension/utils/strings.dart';
 
 class AccountTabBar extends StatelessWidget {
   const AccountTabBar({
@@ -14,43 +14,37 @@ class AccountTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-      child: Container(
-        color: context.colorScheme.surface,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  border: Border(
-                    bottom: BorderSide(
-                      color: context.colorScheme.secondary.withOpacity(0.7),
-                    ),
-                  ),
-                ),
-                child: TabBar(
-                  labelColor: context.colorScheme.onSurface,
-                  unselectedLabelColor: context.colors.cardBgColor,
-                  indicatorColor: context.colorScheme.primary,
-                  labelStyle: context.textTheme.bodyMedium
-                      ?.copyWith(fontWeight: FontWeight.w800),
-                  tabs: [
-                    Tab(text: Strings.accountAssets),
-                    Tab(text: Strings.accountTransactions),
-                  ],
-                ),
-              ),
-            ),
-            const Expanded(
-                child: TabBarView(
-              children: [
-                AccountAssetsWidget(),
-                AccountTransactionsTab(),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.75,
+            height: 40,
+            child: TabBar(
+              indicatorSize: TabBarIndicatorSize.label,
+              labelColor: context.colors.primary,
+              unselectedLabelColor: context.colors.onSurface,
+              indicatorColor: context.colors.primary,
+              labelStyle: context.textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
+              tabs: [
+                Tab(text: Strings.accountAssets.toUpperCase()),
+                Tab(text: Strings.accountTransactions.toUpperCase()),
               ],
-            )),
-          ],
-        ),
+            ),
+          ),
+          const Expanded(
+            child: TabBarView(
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                RecentAssetsListView(),
+                RecentTransactionListView(),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

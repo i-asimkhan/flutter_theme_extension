@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_theme_etension/home/account/account_screen.dart';
-import 'package:flutter_theme_etension/strings.dart';
+import 'package:flutter_theme_etension/home/settings/settings_screen.dart';
+import 'package:flutter_theme_etension/theme/extensions/app_colors.dart';
+import 'package:flutter_theme_etension/utils/strings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,10 +13,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedScreenIndex = 0;
-  final List _screens = [
-    {"screen": const AccountScreen(), "title": "Screen A Title"},
-    {"screen": const ScreenB(), "title": "Screen B Title"}
-  ];
 
   void _selectScreen(int index) {
     setState(() {
@@ -25,27 +23,22 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(Strings.appName),
-      ),
-      body: _screens[_selectedScreenIndex]["screen"],
+      body: _selectedScreenIndex == 0
+          ? const AccountScreen()
+          : const SettingsScreen(),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: context.colors.defaultIcon,
+        unselectedItemColor: context.colors.disabledIcon,
+        backgroundColor: context.colors.surface,
         currentIndex: _selectedScreenIndex,
         onTap: _selectScreen,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
+        items: [
+          BottomNavigationBarItem(
+              icon: const Icon(Icons.home), label: Strings.home),
+          BottomNavigationBarItem(
+              icon: const Icon(Icons.settings), label: Strings.settings)
         ],
       ),
     );
-  }
-}
-
-class ScreenB extends StatelessWidget {
-  const ScreenB({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
