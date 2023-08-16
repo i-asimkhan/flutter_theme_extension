@@ -12,13 +12,15 @@ class AccountScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(
-            height: 56,
+          Container(
+            color: context.colors.background,
+            height: 96,
           ),
           const AccountHeaderWidget(
             totalBalance: '\$10,323.23',
           ),
           Container(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
             color: context.colors.background,
             height: 200,
             child: const FLChartWidget(),

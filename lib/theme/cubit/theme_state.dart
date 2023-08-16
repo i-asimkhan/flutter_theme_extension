@@ -22,16 +22,16 @@ class ThemeState {
   ThemeData get lightTheme {
     switch (selectedThemeType) {
       case ThemeType.normal:
-        return AppTheme.lighTheme;
+        return AppTheme.lightTheme;
 
       case ThemeType.eid:
-        return EidTheme.lighTheme;
+        return EidTheme.lightTheme;
 
       case ThemeType.diwali:
-        return DiwaliTheme.lighTheme;
+        return DiwaliTheme.lightTheme;
 
       case ThemeType.christmas:
-        return ChristmasTheme.lighTheme;
+        return ChristmasTheme.lightTheme;
     }
   }
 

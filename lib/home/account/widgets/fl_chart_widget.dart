@@ -1,14 +1,15 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_theme_etension/theme/extensions/app_colors.dart';
+import 'package:flutter_theme_etension/theme/extensions/chart_style.dart';
 
 class FLChartWidget extends StatelessWidget {
   const FLChartWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const _LineChart(
-      isShowingMainData: true,
+    return _LineChart(
+      isShowingMainData: context.flChartStyle.isShowingMainData,
     );
   }
 }
@@ -23,29 +24,43 @@ class _LineChart extends StatelessWidget {
     return LineChart(
       isShowingMainData
           ? sampleData1(
-              context.colors.error,
-              context.colors.linearGradient.colors[0],
-              context.colors.linearGradient.colors[1],
-              context.colors.linearGradient.colors[2],
+              borderColor: context.flChartStyle.chartBorderColor,
+              toolTipColor: context.flChartStyle.toolTipBgColor,
+              color1: context.flChartStyle.chartColor1,
+              color2: context.flChartStyle.chartColor2,
+              color3: context.flChartStyle.chartColor3,
+              minX: context.flChartStyle.minX,
+              maxX: context.flChartStyle.maxX,
+              minY: context.flChartStyle.minY,
+              maxY: context.flChartStyle.maxY,
             )
           : sampleData2(
-              context.colors.error,
-              context.colors.linearGradient.colors[0],
-              context.colors.linearGradient.colors[1],
-              context.colors.linearGradient.colors[2],
+              borderColor: context.flChartStyle.chartBorderColor,
+              color1: context.flChartStyle.chartColor1,
+              color2: context.flChartStyle.chartColor2,
+              color3: context.flChartStyle.chartColor3,
+              minX: context.flChartStyle.minX,
+              maxX: context.flChartStyle.maxX,
+              maxY: context.flChartStyle.maxY,
+              minY: context.flChartStyle.minY,
             ),
-      duration: const Duration(milliseconds: 250),
+      duration: context.flChartStyle.animationDuration,
     );
   }
 
-  LineChartData sampleData1(
-    Color borderColor,
-    Color color1,
-    Color color2,
-    Color color3,
-  ) =>
+  LineChartData sampleData1({
+    required Color borderColor,
+    required Color toolTipColor,
+    required Color color1,
+    required Color color2,
+    required Color color3,
+    required double minX,
+    required double maxX,
+    required double minY,
+    required double maxY,
+  }) =>
       LineChartData(
-        lineTouchData: lineTouchData1(borderColor),
+        lineTouchData: lineTouchData1(toolTipColor),
         gridData: gridData,
         titlesData: titlesData1,
         borderData: borderData(borderColor),
@@ -54,32 +69,36 @@ class _LineChart extends StatelessWidget {
           // lineChartBarData1_2(color2),
           // lineChartBarData1_3(color3),
         ],
-        minX: 0,
-        maxX: 14,
-        maxY: 4,
-        minY: 0,
+        minX: minX,
+        maxX: maxX,
+        minY: minY,
+        maxY: maxY,
       );
 
-  LineChartData sampleData2(
-    Color borderColor,
-    Color color1,
-    Color color2,
-    Color color3,
-  ) =>
+  LineChartData sampleData2({
+    required Color borderColor,
+    required Color color1,
+    required Color color2,
+    required Color color3,
+    required double minX,
+    required double maxX,
+    required double minY,
+    required double maxY,
+  }) =>
       LineChartData(
         lineTouchData: lineTouchData2,
         gridData: gridData,
         titlesData: titlesData2,
         borderData: borderData(borderColor),
         lineBarsData: [
-          lineChartBarData2_1(color1),
-          // lineChartBarData2_2(color2),
+          // lineChartBarData2_1(color1),
+          lineChartBarData2_2(color2),
           // lineChartBarData2_3(color3),
         ],
-        minX: 0,
-        maxX: 14,
-        maxY: 6,
-        minY: 0,
+        minX: minX,
+        maxX: maxX,
+        minY: minY,
+        maxY: maxY,
       );
 
   LineTouchData lineTouchData1(Color color) => LineTouchData(
@@ -206,16 +225,16 @@ class _LineChart extends StatelessWidget {
         show: true,
         border: Border(
           bottom: BorderSide(color: color.withOpacity(0.2), width: 4),
-          left: const BorderSide(color: Colors.transparent),
-          right: const BorderSide(color: Colors.transparent),
-          top: const BorderSide(color: Colors.transparent),
+          left: BorderSide(color: color.withOpacity(0.2), width: 0),
+          right: BorderSide(color: color.withOpacity(0.2), width: 0),
+          top: BorderSide(color: color.withOpacity(0.2), width: 0),
         ),
       );
 
   LineChartBarData lineChartBarData1_1(Color color) => LineChartBarData(
         isCurved: true,
         color: color,
-        barWidth: 8,
+        barWidth: 6,
         isStrokeCapRound: true,
         dotData: const FlDotData(show: false),
         belowBarData: BarAreaData(show: false),
@@ -227,6 +246,8 @@ class _LineChart extends StatelessWidget {
           FlSpot(10, 2),
           FlSpot(12, 2.2),
           FlSpot(13, 1.8),
+          FlSpot(13, 1.4),
+          FlSpot(13, 1.0),
         ],
       );
 
@@ -378,7 +399,7 @@ class LineChartSample1State extends State<LineChartSample1> {
           IconButton(
             icon: Icon(
               Icons.refresh,
-              color: context.colors.onSurface
+              color: context.colors.primary
                   .withOpacity(isShowingMainData ? 1.0 : 0.5),
             ),
             onPressed: () {

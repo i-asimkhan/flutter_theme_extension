@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+@immutable
 class TransactionTileStyle extends ThemeExtension<TransactionTileStyle> {
   const TransactionTileStyle({
     required this.backgroundColor,

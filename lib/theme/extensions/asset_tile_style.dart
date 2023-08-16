@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+@immutable
 class AssetTileStyle extends ThemeExtension<AssetTileStyle> {
   const AssetTileStyle({
     required this.backgroundColor,

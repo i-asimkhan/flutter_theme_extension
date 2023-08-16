@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_theme_etension/home/account/widgets/transactons/transaction_tile.dart';
-import 'package:flutter_theme_etension/theme/extensions/app_colors.dart';
 import 'package:flutter_theme_etension/theme/themes/app_text_theme.dart';
 
 class RecentTransactionListView extends StatelessWidget {
@@ -22,7 +21,6 @@ class RecentTransactionListView extends StatelessWidget {
               child: Text(
                 "TODAY",
                 style: context.textTheme.bodyMedium?.copyWith(
-                  color: context.colors.onSecondary,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -62,7 +60,6 @@ class RecentTransactionListView extends StatelessWidget {
               child: Text(
                 "YESTERDAY",
                 style: context.textTheme.bodyMedium?.copyWith(
-                  color: context.colors.onSecondary,
                   fontWeight: FontWeight.w500,
                 ),
               ),
