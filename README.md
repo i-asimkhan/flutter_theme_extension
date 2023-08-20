@@ -17,14 +17,11 @@ This is a demo application created for my presentation at [Flutter Meetup #5 @ W
 
 ### Preview
 
-* Dynamic theming with theme extensions
-  ![]([https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Chart.gif](https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Dynamic%20theming.gif))
+  ![](https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Dynamic%20theming.gif)
 
-* Heavily Customized Widgets (like charts)
   ![](https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Chart.gif)
 
-* Multiple Themes (Themes of an occasion)
-  ![]([https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Chart.gif](https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Occasional%20Theming.gif))
+  ![](https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Occasional%20Theming.gif)
 
 ## Talk presentation
 
