@@ -17,40 +17,18 @@ This is a demo application created for my presentation at [Flutter Meetup #5 @ W
 
 ### Preview
 
-* This is an unordered list item. 
-
-    <div style=".ytp-swatch-background-color{background-color:white;}">
-        <iframe
-            src="https://drive.google.com/file/d/1cweVZJ6CspsIEDLVHhq_dpit63DgOM0V/preview"
-            allow="autoplay"
-            height="640"
-        >
-        </iframe>
-    </div>
+* Dynamic theming with theme extensions
+  ![]([https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Chart.gif](https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Dynamic%20theming.gif))
 
 * Heavily Customized Widgets (like charts)
-    <div style=".ytp-swatch-background-color{background-color:white;}">
-        <iframe
-            src="https://drive.google.com/file/d/1FvlcirmloXueNVPBMeUOyQSQHQP_Jvxj/preview"
-            allow="autoplay"
-            height="640"
-        >
-        </iframe>
-    </div>
+  ![](https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Chart.gif)
 
 * Multiple Themes (Themes of an occasion)
-    <div style=".ytp-swatch-background-color{background-color:white;}">
-        <iframe
-            src="https://drive.google.com/file/d/1zk_6Yi6wzH9jTaKf5siMg9lyBAxUThiq/preview"
-            allow="autoplay"
-            height="640"
-        >
-        </iframe>
-    </div>
+  ![]([https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Chart.gif](https://github.com/i-asimkhan/flutter_theme_extension/blob/main/assets/gifs/Occasional%20Theming.gif))
 
 ## Talk presentation
 
-Here is the link to the talk presentaiotn.
+Here is the link to the talk presentation.
 
 <div align="left">
       <a href="https://www.youtube.com/live/yo3rqk2jg8U?feature=share&t=11280">
@@ -59,7 +37,7 @@ Here is the link to the talk presentaiotn.
 </div>
 
 
-## Folow me
+## Follow me
 
 * [LinkedIn](https://www.linkedin.com/in/i-am-asimkhan/)
 * [X(formerly Twitter)](https://twitter.com/i_asim_khan) 
